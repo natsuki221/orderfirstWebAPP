@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/js/myjs.js"></script>
+    <script> window.onload=startConn();</script>
+
+    <title>產品</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-14 mb-2">
+
+
+                <h1>訂單確認</h1>
+                <h4>訂單確認網站</h4>
+                
+
+                <div class="btn-group mb-2" role="group">
+                    <button class="btn btn-success" type="button" onclick="startConn()">啟動接單系統</button>
+                    <button class="btn btn-danger" type="button" onclick="stopConn()">停止接單系統</button>
+                </div>
+
+
+                <table border="0" class="table table-striped table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th>Product Id</th>
+                            <th>Order Number</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Name</th>
+                            <th>Order Time</th>
+                            <th>Finished</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="orde : ${listOrders}">
+                            <td th:text="${orde.product_id}"></td>
+                            <td th:text="${orde.order_num}"></td>
+                            <td th:text="${orde.quantity}"></td>
+                            <td th:text="${orde.product_price}"></td>
+                            <td th:text="${orde.product_name}"></td>
+                            <td th:text="${orde.order_date}"></td>
+                            <td th:text="${orde.finished}"></td>
+                            <td>
+                                <div class="btn-group" role="group">
+
+                                    <form th:action="@{/finishProduct}" method="post">
+                                        <input type="hidden" name="order_num" th:value="${orde.order_num}" />
+                                        <input type="hidden" name="name" value="沒有名稱，名稱不重要!" />
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('確定完成?')">完成</button>
+                                    </form>
+
+
+                                </div> <!-- class="btn-group" -->
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div><!-- column -->
+            <div class="col col-lg-14 mb-2">
+                <a th:href="@{/logout}" class="btn btn-primary mb-2-2">登出</a>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</body>
+
+</html>

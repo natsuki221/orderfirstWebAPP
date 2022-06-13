@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"   xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"/>
+        <!-- Load icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>POS系統</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar bg-light fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://www.nkust.edu.tw/var/file/0/1000/img/513/533313901.png" alt="" width="80" class="d-inline-block" style="display: inline"/>
+                        <p class="fs-1" style="display: inline">點餐FIRST!</p>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h3 class="offcanvas-title" id="offcanvasNavbarLabel">點餐FIRST</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">首頁｜Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#restaurant">餐廳｜Restaurant</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link py-3 px-0 px-lg-3" href="/login">登入｜Login(管理員使用)</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link py-3 px-0 px-lg-3" href="/loginOrder">登入｜Login(店家使用)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- 圖片滾輪 -->
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="imgs/show1.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="imgs/show2.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <section class="restaurant" id="restaurant">
+            <div class="container">
+                <div class="row">
+                    <h1 class="mb-4 mt-4">餐廳</h1>
+                    <div class="col-sm-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="imgs/res-101.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">吃義碗麵CatPasta</h5>
+                                    <p class="card-text">義大利麵/燉飯/炸物/飲品/台式風味/特色餐點</p>
+                                    <a href="https://form.jotform.com/221351734915454" class="btn btn-primary">前往訂餐</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="imgs/res-102.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">森川丼丼</h5>
+                                    <p class="card-text">生魚片丼飯，熟食丼飯，炸物丼飯，本店全部餐點皆按單現點現做，為了維護食材的新鮮，決不事先料理，並不添加味素，讓饕客們食用安心，請耐心等候</p>
+                                    <a href="https://form.jotform.com/221571117004442" class="btn btn-primary">前往訂餐</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="imgs/res-101.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">吃義碗麵CatPasta</h5>
+                                    <p class="card-text">義大利麵/燉飯/炸物/飲品/台式風味/特色餐點</p>
+                                    <a href="#" class="btn btn-primary">前往訂餐</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="imgs/res-101.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">吃義碗麵CatPasta</h5>
+                                    <p class="card-text">義大利麵/燉飯/炸物/飲品/台式風味/特色餐點</p>
+                                    <a href="#" class="btn btn-primary">前往訂餐</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="imgs/res-101.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">吃義碗麵CatPasta</h5>
+                                    <p class="card-text">義大利麵/燉飯/炸物/飲品/台式風味/特色餐點</p>
+                                    <a href="#" class="btn btn-primary">前往訂餐</a>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
