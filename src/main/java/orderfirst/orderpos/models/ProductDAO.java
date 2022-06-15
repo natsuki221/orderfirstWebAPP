@@ -26,7 +26,7 @@ public class ProductDAO extends Product {
         conn = DBConnection.getConnection();
         String id = String.format("product_%s", dbID);
         String query = String.format("select * from %s", id);
-        Product prod = new Product();
+        //Product prod = new Product();
         //prod.setDb_id(db_id);
 
         List<Product> product_list = new ArrayList();
@@ -229,6 +229,38 @@ public class ProductDAO extends Product {
         } catch (SQLException ex) {
             System.out.println("update異常:" + ex.toString());
         }
+    }
+    
+    public ArrayList getAllCate(String dbID){
+        
+        conn = DBConnection.getConnection();
+        String id = String.format("product_%s", dbID);
+        String query = String.format("select category from %s", id);
+        //Product prod = new Product();
+        //prod.setDb_id(db_id);
+
+        ArrayList catelist = new ArrayList();
+        //List<Category> category_list = new ArrayList();
+        
+        try {
+            PreparedStatement ps
+                    = conn.prepareStatement(query);
+            System.out.println(query);
+            System.out.println("productDAO: " + dbID);
+            ResultSet rset = ps.executeQuery();
+
+            while (rset.next()) {
+                
+                catelist.add(rset.getString("category"));
+
+                //不要斷線，一直會用到，使用持續連線的方式
+                //conn.close();
+            }
+        } catch (SQLException ex) {
+            System.out.println("getAllproducts異常:" + ex.toString());
+        }
+
+        return catelist;
     }
 
 }

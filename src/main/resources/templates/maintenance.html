@@ -22,7 +22,7 @@
                     <h1>產品維護</h1>
                     <h4>產品維護網站</h4>
                     <a href="/showNewProductForm" class="btn btn-primary btn-lg col-lg-2 mb-3">新增產品</a>
-                    <form class="d-flex mb-2" th:action="@{/order/{uid}(uid=${uid})}" method="post">
+                    <form class="d-flex mb-2" th:action="@{/order/{uid}(uid=${uid})}">
                         <button class="btn btn-primary">訂餐｜Order(商家使用)</button>
                     </form>
                     

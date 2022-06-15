@@ -17,7 +17,7 @@
 
                     <h1>購物車</h1>
                     <h5   class="d-inline-block">
-                        <a href="javascript:history.back()">回上頁</a> 
+                        <a href="/order/{uid}(uid=${uid})">繼續點餐</a> 
                     </h5>
 
                     <div th:if = "${session.cart != null && !session.cart.empty}"   class="d-inline-block">

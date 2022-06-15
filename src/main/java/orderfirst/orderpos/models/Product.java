@@ -27,6 +27,10 @@ public class Product {
         this.description = description;
     }
 
+    public Product(String category) {
+        this.category = category;
+    }
+
     public String getDb_id() {
         return db_id;
     }

@@ -157,7 +157,7 @@ public class AppOrderController {
     }
 
     //OrderPage
-    @PostMapping("/order/{uid}")
+    @RequestMapping("/order/{uid}")
     public String order(@PathVariable(value = "uid") String user_id, Model model) {
 
         // 產品首頁顯示的產品 可以選定一個產品類別或是全部

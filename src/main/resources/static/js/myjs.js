@@ -77,6 +77,7 @@ async function startConn() {
                 success: function (result) {
 
                     if (result == "TRUE") {
+                        document.getElementById('alert').play();
                         if (confirm("是否接收訂單？")) {
                             window.location.reload();
                             console.log("ACCEPT!!")
